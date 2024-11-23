@@ -1,0 +1,72 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-primary: 0 84 143;    /* #00548F - Jal Shakti Blue */
+    --color-secondary: 0 58 117;  /* #003A75 - Darker Blue */
+    --color-accent: 255 170 51;   /* Orange accent */
+  }
+  
+  body {
+    @apply antialiased text-gray-800 bg-gray-50;
+  }
+
+  ::-webkit-scrollbar {
+    @apply w-2;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-primary/20 rounded-full hover:bg-primary/30;
+  }
+
+  input::placeholder {
+    @apply text-gray-400;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply px-4 py-2 rounded-lg font-medium transition-colors disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+  
+  .btn-primary {
+    @apply bg-primary text-white hover:bg-primary/90 disabled:hover:bg-primary;
+  }
+
+  .nav-link {
+    @apply px-4 py-2 text-gray-100 hover:text-white hover:bg-secondary transition-colors;
+  }
+
+  .card {
+    @apply bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-300;
+  }
+}
+
+.chat-message {
+  @apply p-3 rounded-lg max-w-[80%] mb-3 animate-[fadeIn_0.3s_ease-in-out];
+}
+
+.chat-message-user {
+  @apply bg-primary/10 ml-auto text-gray-800;
+}
+
+.chat-message-bot {
+  @apply bg-secondary/10 text-gray-800;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
